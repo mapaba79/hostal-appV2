@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Gerenciador de Hostel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <button id="toggleDarkMode">🌙 Alternar Modo Escuro</button>
+  <h1>Gerenciador de Hostel</h1>
+
+  <section>
+    <h2>Adicionar Reserva</h2>
+    <form id="reservation-form">
+      <label>Nome: <input type="text" id="name" required></label>
+      <label>Nacionalidade: <input type="text" id="nationality" required></label>
+      <label>Quarto/Cama (ex: C-1s): <input type="text" id="roomBed" required></label>
+      <label>Entrada: <input type="date" id="checkin" required></label>
+      <label>Saída: <input type="date" id="checkout" required></label>
+      <label>Valor Pago: <input type="number" id="payment" required></label>
+      <button type="submit">Salvar</button>
+    </form>
+  </section>
+
+  <section>
+    <h2>Status dos Quartos</h2>
+    <div class="room-group">
+      <h3>Compartilhado</h3>
+      <div class="grid" id="sharedRoom"></div>
+    </div>
+    <div class="room-group">
+      <h3>Voluntários</h3>
+      <div class="grid" id="volunteerRoom"></div>
+    </div>
+    <div class="room-group">
+      <h3>Privados</h3>
+      <div class="grid" id="privateRooms"></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Busca por Nome</h2>
+    <input type="text" id="searchInput" placeholder="Digite o nome">
+    <ul id="searchResults"></ul>
+  </section>
+
+  <section>
+    <h2>Filtrar por Data</h2>
+    <label>Data: <input type="date" id="filterDate"></label>
+    <ul id="filteredList"></ul>
+  </section>
+
+  <section>
+    <h2>Reservas Ativas</h2>
+    <ul id="activeList"></ul>
+  </section>
+
+  <section>
+    <h2>Histórico</h2>
+    <ul id="historyList"></ul>
+  </section>
+
+  <section>
+    <h2>Exportar / Importar</h2>
+    <button id="exportJson">📁 Exportar JSON</button>
+    <button id="exportCsv">📄 Exportar CSV</button>
+    <input type="file" id="importJson" accept=".json">
+  </section>
+
+  <div id="editModal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Editar Reserva</h3>
+      <form id="edit-form">
+        <input type="hidden" id="editIndex">
+        <label>Nome: <input type="text" id="editName" required></label>
+        <label>Nacionalidade: <input type="text" id="editNationality" required></label>
+        <label>Quarto/Cama: <input type="text" id="editRoomBed" required></label>
+        <label>Entrada: <input type="date" id="editCheckin" required></label>
+        <label>Saída: <input type="date" id="editCheckout" required></label>
+        <label>Valor Pago: <input type="number" id="editPayment" required></label>
+        <button type="submit">Salvar Alterações</button>
+        <button type="button" id="closeModal">Cancelar</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
